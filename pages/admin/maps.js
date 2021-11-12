@@ -103,7 +103,7 @@ function Maps() {
         <Row>
           <div className="col">
             <Card className="shadow border-0">
-              <MapWrapper />
+              {/* <MapWrapper /> */}
             </Card>
           </div>
         </Row>
