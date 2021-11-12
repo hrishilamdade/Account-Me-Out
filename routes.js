@@ -7,33 +7,34 @@ var routes = [
   },
   {
     path: "/icons",
-    name: "Icons",
-    icon: "ni ni-planet text-blue",
+    name: "Transaction History",
+    icon: "fa fa-book text-blue",
+    layout: "/admin",
+  },
+  {
+    path: "/transfer",
+    name: "Transfer Money",
+    icon: "fa fa-university text-red",
+    layout: "/admin",
+  },
+  {
+    path: "/loan",
+    name: "Apply For Loan",
+    icon: "fa fa-suitcase text-black",
+    layout: "/admin",
+  },
+  {
+    path: "/credit",
+    name: "Apply for credit card",
+    icon: "fa fa-credit-card text-orange",
     layout: "/admin",
   },
   {
     path: "/profile",
-    name: "User Profile",
+    name: "Profile",
     icon: "ni ni-single-02 text-yellow",
     layout: "/admin",
   },
-  {
-    path: "/tables",
-    name: "Tables",
-    icon: "ni ni-bullet-list-67 text-red",
-    layout: "/admin",
-  },
-  {
-    path: "/login",
-    name: "Login",
-    icon: "ni ni-key-25 text-info",
-    layout: "/auth",
-  },
-  {
-    path: "/register",
-    name: "Register",
-    icon: "ni ni-circle-08 text-pink",
-    layout: "/auth",
-  },
+
 ];
 export default routes;
