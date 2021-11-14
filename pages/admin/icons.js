@@ -26,7 +26,7 @@ const Icons = () => {
         {/* Table */}
         <Row>
           <div className="col">
-            <Card className="shadow">
+            {/* <Card className="shadow">
               <CardHeader className="bg-transparent">
                 <h3 className="mb-0">Icons</h3>
               </CardHeader>
@@ -2760,7 +2760,7 @@ const Icons = () => {
                   </Col>
                 </Row>
               </CardBody>
-            </Card>
+            </Card> */}
           </div>
         </Row>
       </Container>
