@@ -1,0 +1,75 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Asus\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add bootstrap@next --save
+
+PATH: 
+  C:\Program Files\Common Files\Oracle\Java\javapath;c:\users\asus\gcc\bin;c:\users\asus\gcc\libexec\gcc\x86_64-w64-mingw32\9.2.0;C:\Program Files (x86)\Python38-32\Scripts\;C:\Program Files (x86)\Python38-32\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\Redis\;C:\Program Files\MATLAB\R2021a\bin;C:\Program Files\PuTTY\;C:\Program Files\CodeBlocks\MinGW\bin;C:\Users\Asus\AppData\Local\Programs\Python\Python38\Scripts\;C:\Users\Asus\AppData\Local\Programs\Python\Python38\;C:\Users\Asus\AppData\Local\Microsoft\WindowsApps;C:\Users\Asus\AppData\Local\Programs\Microsoft  MY VS Code\bin;C:\Program Files\sqldeveloper\jdev;C:\Program Files\sqldeveloper\ide\bin;C:\Users\Asus\gcc\bin;C:\Program Files\JetBrains\PyCharm 2020.2.2\bin;;C:\MinGW;C:\Users\Asus\AppData\Roaming\npm;C:\Users\Asus\AppData\Local\GitHubDesktop\bin;C:\Program Files\heroku\bin;C:\Program Files\MongoDB\Server\5.0\bin;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Java\javafx-sdk-17.0.0.1\bin;C:\Users\Asus\AppData\Local\Programs\mongosh\
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  14.15.4
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'C:\Users\Asus\Desktop\React\nextjs-argon-dashboard-master\node_modules\node-sass\vendor\win32-x64-83\binding.node'
+
+npm manifest: 
+  {
+    "name": "nextjs-argon-dashboard",
+    "version": "1.1.0",
+    "author": "Creative Tim",
+    "license": "MIT",
+    "homepage": "https://demos.creative-tim.com/nextjs-argon-dashboard/",
+    "description": "NextJS version of Argon Dashboard React by Creative Tim",
+    "bugs": {
+      "url": "https://github.com/creativetimofficial/nextjs-argon-dashboard/issues"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/creativetimofficial/nextjs-argon-dashboard.git"
+    },
+    "scripts": {
+      "start": "next start",
+      "build": "next build",
+      "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && rm -rf .next/ && rm -rf out/ && npm install && npm run dev",
+      "compile:scss": "node-sass --importer node_modules/node-sass-package-importer/dist/cli.js assets/scss/nextjs-argon-dashboard.scss assets/css/nextjs-argon-dashboard.css",
+      "minify:scss": "node-sass --importer node_modules/node-sass-package-importer/dist/cli.js assets/scss/nextjs-argon-dashboard.scss assets/css/nextjs-argon-dashboard.min.css --output-style compressed",
+      "map:scss": "node-sass --importer node_modules/node-sass-package-importer/dist/cli.js assets/scss/nextjs-argon-dashboard.scss assets/css/nextjs-argon-dashboard.css --source-map true",
+      "build:scss": "npm run compile:scss && npm run minify:scss && npm run map:scss",
+      "dev": "next dev"
+    },
+    "dependencies": {
+      "@fortawesome/fontawesome-free": "5.15.2",
+      "@zeit/next-css": "1.0.1",
+      "@zeit/next-sass": "1.0.1",
+      "bootstrap": "4.6.0",
+      "chart.js": "2.9.4",
+      "classnames": "2.2.6",
+      "moment": "2.29.1",
+      "next": "10.0.6",
+      "next-compose-plugins": "2.2.1",
+      "next-fonts": "1.4.0",
+      "next-images": "1.3.1",
+      "node-sass": "4.14.1",
+      "node-sass-package-importer": "5.3.2",
+      "nouislider": "14.6.3",
+      "path": "0.12.7",
+      "react": "17.0.1",
+      "react-bootstrap": "^2.0.2",
+      "react-chartjs-2": "2.11.1",
+      "react-copy-to-clipboard": "5.0.3",
+      "react-datetime": "3.0.4",
+      "react-dom": "17.0.1",
+      "reactstrap": "8.9.0",
+      "webpack": "4.44.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
