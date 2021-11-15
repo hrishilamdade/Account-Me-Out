@@ -76,7 +76,8 @@ function Sidebar(props) {
   const { routes, logo } = props;
   let navbarBrand = (
     <NavbarBrand href="#pablo" className="pt-0">
-      <img alt={logo.imgAlt} className="navbar-brand-img" src={logo.imgSrc} />
+      {/* <img alt={logo.imgAlt} className="navbar-brand-img" src={logo.imgSrc} /> */}
+      <h2>Account Me Out</h2>
     </NavbarBrand>
   );
   return (
