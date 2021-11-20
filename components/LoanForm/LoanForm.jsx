@@ -19,20 +19,23 @@ export default function LoanForm() {
     };
 
     return (
-        <div className="p-3 m-2 rounded bg-white">
+        <div className="d-flex flex-column p-3 m-2 rounded bg-white">
             <FormControl>
                 <div className="mb-3">
                     <Input placeholder='Name' id="my-input" aria-describedby="my-helper-text" />
                 </div>
-
+            </FormControl>
+            <FormControl>
                 <div className="mb-3">
                     <Input placeholder='Address' id="my-input" aria-describedby="my-helper-text" />
                 </div>
-
+            </FormControl>
+            <FormControl>
                 <div className="mb-3">
                     <Input placeholder='Documents' id="my-input" type="file" aria-describedby="my-helper-text"/>
                 </div>
-                
+            </FormControl>    
+            <FormControl>
                 <div className="mb-3">
                 <Select
                     labelId="demo-controlled-open-select-label"
