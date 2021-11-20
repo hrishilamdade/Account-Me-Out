@@ -6,12 +6,6 @@ var routes = [
     layout: "/admin",
   },
   {
-    path: "/icons",
-    name: "Transaction History",
-    icon: "fa fa-book text-blue",
-    layout: "/admin",
-  },
-  {
     path: "/transfer",
     name: "Transfer Money",
     icon: "fa fa-university text-red",
@@ -35,6 +29,5 @@ var routes = [
     icon: "ni ni-single-02 text-yellow",
     layout: "/admin",
   },
-
 ];
 export default routes;
