@@ -33,6 +33,7 @@ import {
 import Header from "components/Headers/Header.js";
 import AccountDetails from "../../components/Dashboard/AccountDetails";
 import TransactionHistory from "../../components/Dashboard/TransactionHistory";
+import Mic from "../../components/Mic/reactMic";
 
 const Dashboard = (props) => {
   const [activeNav, setActiveNav] = React.useState(1);
@@ -54,6 +55,7 @@ const Dashboard = (props) => {
       <Container className="min-vh-100 p-3">
         <AccountDetails/>
         <TransactionHistory/>
+        <Mic/>
       </Container>
     </>
   );
