@@ -1,5 +1,6 @@
 import { ReactMic } from 'react-mic';
 import React, { useState } from 'react';
+import axios from 'axios';
  
 function Mic() {
 
@@ -19,11 +20,20 @@ function Mic() {
     
     function onStop(recordedBlob) {
         console.log('recordedBlob is: ', recordedBlob);
+
+        const url = "http://localhost:8000/vpaInput";
+        
+        axios.post(url, {input : recordedBlob}, {headers : {
+            'Content-Type' : 'application/json'
+        }})
+        .then((res)=>{
+            console.log(res);
+        })
     }
 
 
     return (
-        <div>
+        <div style={{overflow : "hidden"}}>
             <ReactMic
                 record={record}
                 className="sound-wave"
