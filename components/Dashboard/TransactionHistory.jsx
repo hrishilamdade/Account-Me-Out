@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 function TransactionHistory() {
     const [tranactions, setTranactions] = useState([1,3,4,5,6,6])
     return (
-        <div className="mt-3 p-3 bg-white rounded">
-            Transaction History
+        <div className="mt-3 p-3 bg-white rounded shadow-lg">
+             <p><h4>Transaction History</h4></p>
 
             <div className="ms-2 justify-content-center text-center" >
                 <table classNam="text-center">
