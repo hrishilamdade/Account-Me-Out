@@ -35,6 +35,7 @@ import {
   Row,
   Col,
 } from "reactstrap";
+import Mic from "../Mic/reactMic";
 
 var ps;
 
@@ -225,6 +226,7 @@ function Sidebar(props) {
           
         </Collapse>
       </Container>
+      <Mic/>
     </Navbar>
   );
 }
