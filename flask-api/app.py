@@ -1,10 +1,10 @@
 from flask import Flask, request
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from flask_pymongo import PyMongo
 
 import webbrowser as wb
 import speech_recognition as sr
-from time import ctime
+from time import *
 from gtts import gTTS
 import os
 import playsound 
@@ -15,6 +15,8 @@ x = 0
 
 app = Flask(__name__)
 
+CORS(app, support_credentials=True)
+
 client = PyMongo(app, uri = "mongodb+srv://root:123@cluster0.zmfng.mongodb.net/account_me_out?authSource=admin&replicaSet=atlas-80odye-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true")
 db = client.db
 
@@ -22,10 +24,11 @@ transactions = db['transactions']
 loans = db['loans']
 
 user_collection=db['user']
+transactions_collection = db['transactions']
+loan_collection = db['loans']
+user_collection = db['user']
 
-# print(list(transactions.find({})))
 
-CORS(app)
 
 def speak(text):
     tts=gTTS(text=text,lang='en')
@@ -61,6 +64,7 @@ def respond(voice_data):
         speak("Sorry, I didn't get that. Can you speak again!")
 
 @app.route("/vpaInput", methods = ["POST"])
+@cross_origin(origin="*",supports_credentials=True)
 def vpaInput():
 
     global input_till_now
@@ -84,11 +88,44 @@ def vpaInput():
     return {"message" : "success"}
 
 @app.route("/loanForm", methods = ["POST"])
+@cross_origin(origin="*", supports_credentials=True)
 def loanForm():
 
     data = request.form['loan_form']
-    f = request.files['file']  
-    f.save(f.filename)  
+    f = request.files['file'].read()  
+    fi = request.files['file']
+    fi.save(fi.filename)  
+
+    print(data)
+    print(type(data))
+
+    data = data.split(",")
+
+    l = []
+
+    for d in data:
+
+        temp = d.split(":")[1]
+        l.append(temp[1:len(temp)-1])
+
+    loan_collection.insert_one({
+        'name' : l[0],
+        'address' : l[1],
+        'loanType' : l[2],
+        'amount' : l[3],
+        'file' : f
+    })
+
+    user_query = list(user_collection.find({"name" : l[0]}))[0]
+
+    
+    print(user_query['acc_bal'])
+
+    user_query['acc_bal'] += int(l[3])
+
+    print(user_query['acc_bal'])
+
+    user_collection.update_one({'name' : l[0]}, {'$set' : {'acc_bal' : user_query['acc_bal']}})
     
     return {"message" : "success"}
 

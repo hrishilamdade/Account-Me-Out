@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { FormControl, FormHelperText, InputLabel, Input, Select, MenuItem, FormLabel } from '@material-ui/core';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 export default function LoanForm() {
 
     const [age, setAge] = React.useState('');
     const [open, setOpen] = React.useState(false);
-    const [state, setstate] = useState({name : "", address : "", loantype : "", file : ""});
+    const [state, setstate] = useState({name : "", address : "", loantype : "Loan Type", amount : ""});
 
     const handleStateChange = (e) =>{
         setstate({...state, [e.target.name] : e.target.value});
@@ -41,11 +42,46 @@ export default function LoanForm() {
         const url = "http://localhost:8000/loanForm";
         
         axios.post(url, formdata, {headers : {
-            'Content-Type' : 'application/json'
+            'Content-Type' : 'application/json',
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "*",
+            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
         }})
         .then((res)=>{
             console.log(res);
         })
+
+        Swal.fire({
+          title: '<strong>Please wait while we verify your Documents and sanction your Loan</strong>',
+          icon: "warning",
+          width: 500,
+          padding: '1.2rem',
+          confirmButtonText: 'Close',
+          background: '#fff',
+          backdrop: `
+            rgba(43, 165, 137, 0.45)
+            left top
+            no-repeat
+          `,        
+        });
+
+        setTimeout(() => { 
+            Swal.fire({
+            title: '<strong>Your Documents have been verified successfully and Loan has been sanctioned successfully</strong>',
+            icon: "success",
+            width: 500,
+            padding: '1.2rem',
+            confirmButtonText: 'Close',
+            background: '#fff',
+            backdrop: `
+                rgba(43, 165, 137, 0.45)
+                left top
+                no-repeat
+            `,        
+            });
+
+        }, 5000);
+
     };
 
     console.log(state);
@@ -64,7 +100,7 @@ export default function LoanForm() {
             </FormControl>
             <FormControl>
                 <div className="mb-3">
-                    <Input name="file" placeholder='Documents' id="my-input" type="file" aria-describedby="my-helper-text" onChange={handleFileChange} />
+                    <Input name="amount" placeholder='Amount' id="my-input" aria-describedby="my-helper-text" value={state.amount} onChange={handleStateChange} />
                 </div>
             </FormControl>    
             <FormControl>
@@ -88,7 +124,7 @@ export default function LoanForm() {
                 </div>
             </FormControl>
 
-            <button onClick={handleSubmit}>Submit</button>
+            {/* <button onClick={handleSubmit}>Submit</button> */}
 
 
             <form encType="multipart/form-data">  
