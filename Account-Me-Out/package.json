@@ -52,6 +52,7 @@
     "react-speech-recognition": "^3.9.0",
     "reactstrap": "8.9.0",
     "regenerator-runtime": "^0.13.9",
+    "sweetalert2": "^11.2.0",
     "webpack": "4.44.1"
   }
 }
