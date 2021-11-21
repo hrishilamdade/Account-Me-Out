@@ -20,6 +20,10 @@ CORS(app, support_credentials=True)
 client = PyMongo(app, uri = "mongodb+srv://root:123@cluster0.zmfng.mongodb.net/account_me_out?authSource=admin&replicaSet=atlas-80odye-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true")
 db = client.db
 
+transactions = db['transactions']
+loans = db['loans']
+
+user_collection=db['user']
 transactions_collection = db['transactions']
 loan_collection = db['loans']
 user_collection = db['user']
@@ -53,7 +57,7 @@ def respond(voice_data):
 
     elif 'TRANSACTION' in voice_data or 'TRANSFER' in voice_data or 'SEND' in voice_data:
         speak('Okay wait, redirecting you to transaction page')
-        wb.open("http://localhost:3000/admin/dashboard")
+        wb.open("http://localhost:3000/admin/transfer")
 
 
     else:
@@ -123,6 +127,21 @@ def loanForm():
 
     user_collection.update_one({'name' : l[0]}, {'$set' : {'acc_bal' : user_query['acc_bal']}})
     
+    return {"message" : "success"}
+
+
+@app.route("/transferForm", methods = ["POST"])
+def transferForm():
+
+    data = request.get_json()
+    print(data)
+    transactions.insert_one(data)
+    user_query1 = list(user_collection.find({"name" :data['nameOfReceiver']}))[0]
+    user_query2 = list(user_collection.find({"name" :data['sender']}))[0]
+    user_query1['acc_bal']+=int(data['amountToTranfer'])
+    user_query2['acc_bal']-=int(data['amountToTranfer'])
+    user_collection.update_one({'name' : data['nameOfReceiver']}, {'$set' : {'acc_bal' : user_query1['acc_bal']}})
+    user_collection.update_one({'name' : data['sender']}, {'$set' : {'acc_bal' : user_query2['acc_bal']}})
     return {"message" : "success"}
 
 if __name__ == "__main__":
