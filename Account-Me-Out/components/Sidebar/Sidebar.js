@@ -35,7 +35,7 @@ import {
   Row,
   Col,
 } from "reactstrap";
-import Mic from "../Mic/reactMic";
+import Mic from "../Mic/SpeechReco";
 
 var ps;
 
