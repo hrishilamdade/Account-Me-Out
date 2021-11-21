@@ -3,9 +3,9 @@ import ReactDOM from "react-dom";
 import App from "next/app";
 import Head from "next/head";
 import Router from "next/router";
-import 'bootstrap/dist/css/bootstrap.css'
+import "bootstrap/dist/css/bootstrap.css";
 import PageChange from "components/PageChange/PageChange.js";
-import 'regenerator-runtime/runtime';
+import "regenerator-runtime/runtime";
 
 import "assets/plugins/nucleo/css/nucleo.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -70,7 +70,7 @@ export default class MyApp extends App {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <title>Acoount Me Out</title>
+          <title>Account Me Out</title>
           <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
         </Head>
         <Layout>
