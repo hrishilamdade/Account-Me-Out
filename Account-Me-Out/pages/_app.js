@@ -5,6 +5,7 @@ import Head from "next/head";
 import Router from "next/router";
 import 'bootstrap/dist/css/bootstrap.css'
 import PageChange from "components/PageChange/PageChange.js";
+import 'regenerator-runtime/runtime';
 
 import "assets/plugins/nucleo/css/nucleo.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
