@@ -87,24 +87,20 @@ export default function LoanForm() {
     console.log(state);
 
     return (
-        <div className="d-flex flex-column p-3 m-2 rounded bg-white">
-            <FormControl>
-                <div className="mb-3">
+        <div className="d-flex flex-column p-3 m-4 rounded bg-white shadow-lg">
+            <FormControl className="w-75 m-2">
                     <Input name="name" placeholder='Name' id="my-input" aria-describedby="my-helper-text" value={state.name} onChange={handleStateChange}/>
-                </div>
-            </FormControl>
-            <FormControl>
-                <div className="mb-3">
+                
+            </FormControl >
+            <FormControl className="w-75 m-2">
                     <Input name="address" placeholder='Address' id="my-input" aria-describedby="my-helper-text" value={state.address} onChange={handleStateChange}/>
-                </div>
+               
             </FormControl>
-            <FormControl>
-                <div className="mb-3">
+            <FormControl className="w-75 m-2">
                     <Input name="amount" placeholder='Amount' id="my-input" aria-describedby="my-helper-text" value={state.amount} onChange={handleStateChange} />
-                </div>
+                
             </FormControl>    
-            <FormControl>
-                <div className="mb-3">
+            <FormControl className="w-75 m-2">
                 <Select
                     name = "loantype"
                     labelId="demo-controlled-open-select-label"
@@ -121,15 +117,16 @@ export default function LoanForm() {
                     <MenuItem value="home">Home</MenuItem>
                     <MenuItem value="car">Car</MenuItem>
                 </Select>
-                </div>
             </FormControl>
 
             {/* <button onClick={handleSubmit}>Submit</button> */}
 
 
-            <form encType="multipart/form-data">  
-                <input name="file" placeholder='Documents' id="my-input" type="file" aria-describedby="my-helper-text" onChange={handleFileChange} />  
-                <button onClick={handleSubmit}>Submit</button>
+            <form className="m-2 " encType="multipart/form-data">  
+                <input className="form-control w-50" name="file" placeholder='Documents' id="my-input" type="file" aria-describedby="my-helper-text" onChange={handleFileChange} />
+                <div className="w-75 text-center">  
+                    <button className="m-2 btn btn-success text-center align-self-center" onClick={handleSubmit}>Submit</button>
+                </div>
             </form> 
         </div>
     )

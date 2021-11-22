@@ -1,7 +1,7 @@
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
 from flask_pymongo import PyMongo
-
+import certifi
 import webbrowser as wb
 import speech_recognition as sr
 from time import *
@@ -17,17 +17,18 @@ app = Flask(__name__)
 
 CORS(app, support_credentials=True)
 
-client = PyMongo(app, uri = "mongodb+srv://root:123@cluster0.zmfng.mongodb.net/account_me_out?authSource=admin&replicaSet=atlas-80odye-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true")
+client = PyMongo(app, uri = "mongodb+srv://root:123@cluster0.zmfng.mongodb.net/account_me_out")
 db = client.db
 
 transactions = db['transactions']
 loans = db['loans']
-
 user_collection=db['user']
 transactions_collection = db['transactions']
 loan_collection = db['loans']
 user_collection = db['user']
-
+print(user_collection)
+user_query1 = list(user_collection.find({"acc_num" :"12"}))[0]
+print(user_query1)
 
 
 def speak(text):
@@ -136,12 +137,14 @@ def transferForm():
     data = request.get_json()
     print(data)
     transactions.insert_one(data)
-    user_query1 = list(user_collection.find({"name" :data['nameOfReceiver']}))[0]
-    user_query2 = list(user_collection.find({"name" :data['sender']}))[0]
+    user_query1 = list(user_collection.find({"acc_num" :data['accountOfReceiver']}))[0]
+    user_query2 = list(user_collection.find({"acc_num" :data['sender']}))[0]
     user_query1['acc_bal']+=int(data['amountToTranfer'])
     user_query2['acc_bal']-=int(data['amountToTranfer'])
-    user_collection.update_one({'name' : data['nameOfReceiver']}, {'$set' : {'acc_bal' : user_query1['acc_bal']}})
-    user_collection.update_one({'name' : data['sender']}, {'$set' : {'acc_bal' : user_query2['acc_bal']}})
+    print(user_query1)
+    print(user_query2)
+    user_collection.update_one({'acc_num' : data['accountOfReceiver']}, {'$set' : {'acc_bal' : user_query1['acc_bal']}})
+    user_collection.update_one({'acc_num' : data['sender']}, {'$set' : {'acc_bal' : user_query2['acc_bal']}})
     return {"message" : "success"}
 
 if __name__ == "__main__":

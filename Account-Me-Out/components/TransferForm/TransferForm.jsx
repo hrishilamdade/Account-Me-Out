@@ -45,9 +45,8 @@ function TransferForm() {
 
   console.log(state);
   return (
-    <div className="d-flex flex-column p-3 m-2 rounded bg-white">
-      <FormControl>
-        <div className="mb-3">
+    <div className="d-flex flex-column p-3 m-4 text-center rounded bg-white shadow-lg mh-100">
+      <FormControl className="w-75 m-2">
           <Input
             name="accountOfReceiver"
             placeholder="Account Number"
@@ -56,10 +55,8 @@ function TransferForm() {
             value={state.accountOfReceiver}
             onChange={handleStateChange}
           />
-        </div>
       </FormControl>
-      <FormControl>
-        <div className="mb-3">
+      <FormControl className="w-75 m-2">
           <Input
             name="nameOfReceiver"
             placeholder="Name"
@@ -68,11 +65,9 @@ function TransferForm() {
             value={state.nameOfReceiver}
             onChange={handleStateChange}
           />
-        </div>
       </FormControl>
 
-      <FormControl>
-        <div className="mb-3">
+      <FormControl className="w-75 m-2">
           <Input
             name="amountToTranfer"
             placeholder="Amount"
@@ -81,11 +76,9 @@ function TransferForm() {
             value={state.amountToTranfer}
             onChange={handleStateChange}
           />
-        </div>
       </FormControl>
 
-      <FormControl>
-        <div className="mb-3">
+      <FormControl className="w-75 m-2">
           <Input
             name="sender"
             placeholder="Sender"
@@ -94,12 +87,13 @@ function TransferForm() {
             value={state.sender}
             onChange={handleStateChange}
           />
-        </div>
       </FormControl>
-
-      <button onClick={handleTransfer}>Transfer</button>
+      <div className="w-75">
+      <button style={{width:"max-content"}} className="btn btn-success align-self-center" onClick={handleTransfer}>Transfer</button>
+      </div>
     </div>
   );
+
 }
 
 export default TransferForm;
