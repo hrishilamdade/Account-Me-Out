@@ -6,6 +6,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import ElementNotVisibleException, WebDriverException
 import pickle
+import time
 
 #---------------------------------------------------SETTINGS------------------------------------------------------------
 host="http://localhost:3000/"
@@ -25,5 +26,6 @@ def test_searchWithButton(sb, account, name, amount, sender):
     sb.find_element("//input[@placeholder='Amount']",By.XPATH).send_keys(amount)
     sb.find_element("//input[@placeholder='Sender']",By.XPATH).send_keys(sender)
 
-    sb.find_element("Transfer", By.LINK_TEXT).click()
+    sb.find_element("pk", By.ID).click()
+    time.sleep(5)
     assert True
