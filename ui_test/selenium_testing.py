@@ -26,6 +26,9 @@ def test_searchWithButton(sb, account, name, amount, sender):
     sb.find_element("//input[@placeholder='Amount']",By.XPATH).send_keys(amount)
     sb.find_element("//input[@placeholder='Sender']",By.XPATH).send_keys(sender)
 
-    sb.find_element("pk", By.ID).click()
-    time.sleep(5)
-    assert True
+    try:
+        sb.find_element("pk", By.ID).click()
+        time.sleep(5)
+        assert True
+    except:
+        assert False
