@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { FormControl, FormHelperText, InputLabel, Input, Select, MenuItem, FormLabel } from '@material-ui/core';
 import axios from 'axios';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 
 export default function LoanForm() {
 
     const [age, setAge] = React.useState('');
     const [open, setOpen] = React.useState(false);
-    const [state, setstate] = useState({name : "", address : "", loantype : "Loan Type", amount : ""});
+    const [state, setstate] = useState({name : "", address : "", loantype : "", amount : ""});
 
     const handleStateChange = (e) =>{
         setstate({...state, [e.target.name] : e.target.value});
@@ -51,36 +51,36 @@ export default function LoanForm() {
             console.log(res);
         })
 
-        Swal.fire({
-          title: '<strong>Please wait while we verify your Documents and sanction your Loan</strong>',
-          icon: "warning",
-          width: 500,
-          padding: '1.2rem',
-          confirmButtonText: 'Close',
-          background: '#fff',
-          backdrop: `
-            rgba(43, 165, 137, 0.45)
-            left top
-            no-repeat
-          `,        
-        });
+        // Swal.fire({
+        //   title: '<strong>Please wait while we verify your Documents and sanction your Loan</strong>',
+        //   icon: "warning",
+        //   width: 500,
+        //   padding: '1.2rem',
+        //   confirmButtonText: 'Close',
+        //   background: '#fff',
+        //   backdrop: `
+        //     rgba(43, 165, 137, 0.45)
+        //     left top
+        //     no-repeat
+        //   `,        
+        // });
 
-        setTimeout(() => { 
-            Swal.fire({
-            title: '<strong>Your Documents have been verified successfully and Loan has been sanctioned successfully</strong>',
-            icon: "success",
-            width: 500,
-            padding: '1.2rem',
-            confirmButtonText: 'Close',
-            background: '#fff',
-            backdrop: `
-                rgba(43, 165, 137, 0.45)
-                left top
-                no-repeat
-            `,        
-            });
+        // setTimeout(() => { 
+        //     Swal.fire({
+        //     title: '<strong>Your Documents have been verified successfully and Loan has been sanctioned successfully</strong>',
+        //     icon: "success",
+        //     width: 500,
+        //     padding: '1.2rem',
+        //     confirmButtonText: 'Close',
+        //     background: '#fff',
+        //     backdrop: `
+        //         rgba(43, 165, 137, 0.45)
+        //         left top
+        //         no-repeat
+        //     `,        
+        //     });
 
-        }, 5000);
+        // }, 5000);
 
     };
 
@@ -101,7 +101,7 @@ export default function LoanForm() {
                 
             </FormControl>    
             <FormControl className="w-75 m-2">
-                <Select
+                {/* <Select
                     name = "loantype"
                     labelId="demo-controlled-open-select-label"
                     id="demo-controlled-open-select"
@@ -111,12 +111,15 @@ export default function LoanForm() {
                     value={state.loantype}
                     onChange={handleChange}
                 >
-                    <MenuItem value="Loan">
-                    <em>Loan Type</em>
-                    </MenuItem>
                     <MenuItem value="home">Home</MenuItem>
                     <MenuItem value="car">Car</MenuItem>
-                </Select>
+                </Select> */}
+
+                <select name="loantype" id="loan_form_type_select" value={state.loantype} onChange={handleChange} onClose={handleClose}>
+                    <option value="Home">Home</option>
+                    <option value="Car">Car</option>
+                </select>
+
             </FormControl>
 
             {/* <button onClick={handleSubmit}>Submit</button> */}
