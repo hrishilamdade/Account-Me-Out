@@ -11,27 +11,19 @@ import pickle
 host="http://localhost:3000/"
 #-----------------------------------------------------------------------------------------------------------------------
 
-# @pytest.mark.parametrize([])
-def test_searchWithButton(sb):
+@pytest.mark.parametrize("account, name, amount, sender" ,
+[
+    ("11", "Hrishikesh", "1000", "12")
+])
+def test_searchWithButton(sb, account, name, amount, sender):
     # print(host)
-    sb.open("http://localhost:3000/")
-    sb.maximize_window()    
+    sb.open("http://localhost:3000/admin/transfer")
+    sb.maximize_window()
 
-    # driver = webdriver.Chrome(executable_path="/home/pranav/Desktop/SE Project/ui_test/chromedriver")
-    # driver.open("http://localhost:3000/")
-    # driver.maximize_window()
+    sb.find_element("//input[@placeholder='Account Number']",By.XPATH).send_keys(account)
+    sb.find_element("//input[@placeholder='Name']",By.XPATH).send_keys(name)
+    sb.find_element("//input[@placeholder='Amount']",By.XPATH).send_keys(amount)
+    sb.find_element("//input[@placeholder='Sender']",By.XPATH).send_keys(sender)
 
-    # try:
-    #     if sb.find_element("Account Me Out", By.LINK_TEXT):
-    #         assert True
-    #     else:
-    #         assert False
-    # except:
-    #     assert False
-
-    # try:
-    #     nav_link = sb.find_element("fa fa-suitcase text-black", By.CLASS_NAME).text
-    #     # nav_link.click()
-    #     assert True
-    # except:
-    #     assert False
+    sb.find_element("Transfer", By.LINK_TEXT).click()
+    assert True

@@ -1,0 +1,21 @@
+selenium_testing.py::py::test_searchWithButton[11-Hrishikesh-1000-12]
+--------------------------------------------------------------------
+Last Page: http://localhost:3000/admin/transfer
+  Browser: chrome
+Timestamp: 1638013245  (Unix Timestamp)
+     Date: Saturday, 27 November 2021
+     Time: 5:10:45 PM  (IST, UTC+05:30)
+--------------------------------------------------------------------
+Traceback:   File "/home/pranav/Desktop/SE Project/ui_test/selenium_testing.py", line 28, in test_searchWithButton
+    sb.find_element("Transfer", By.LINK_TEXT).click()
+  File "/home/pranav/.local/lib/python3.8/site-packages/seleniumbase/fixtures/base_case.py", line 8780, in find_element
+    return self.wait_for_element_visible(selector, by=by, timeout=timeout)
+  File "/home/pranav/.local/lib/python3.8/site-packages/seleniumbase/fixtures/base_case.py", line 6239, in wait_for_element_visible
+    return page_actions.wait_for_element_visible(
+  File "/home/pranav/.local/lib/python3.8/site-packages/seleniumbase/fixtures/page_actions.py", line 384, in wait_for_element_visible
+    timeout_exception(ElementNotVisibleException, message)
+  File "/home/pranav/.local/lib/python3.8/site-packages/seleniumbase/fixtures/page_actions.py", line 163, in timeout_exception
+    raise exception(message)
+
+Exception: Message: 
+ Link text {Transfer} was not visible after 10 seconds!
