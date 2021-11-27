@@ -125,7 +125,7 @@ export default function LoanForm() {
             <form className="m-2 " encType="multipart/form-data">  
                 <input className="form-control w-50" name="file" placeholder='Documents' id="my-input" type="file" aria-describedby="my-helper-text" onChange={handleFileChange} />
                 <div className="w-75 text-center">  
-                    <button className="m-2 btn btn-success text-center align-self-center" onClick={handleSubmit}>Submit</button>
+                    <button id="laonSubmit" className="m-2 btn btn-success text-center align-self-center" onClick={handleSubmit}>Submit</button>
                 </div>
             </form> 
         </div>
