@@ -66,6 +66,7 @@ def test_Loan(sb,name, address, amount, loantype):
    ("Transfer Money"),
    ("Dashboard"),
    ("Profile"),
+   ("People")
 ])
 def test_LoadingAllPages(sb,id):
     #get method to launch the URL

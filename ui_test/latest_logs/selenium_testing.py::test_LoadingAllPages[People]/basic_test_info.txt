@@ -1,0 +1,12 @@
+selenium_testing.py::py::test_LoadingAllPages[People]
+--------------------------------------------------------------------
+Last Page: http://localhost:3000/admin/dashboard
+  Browser: chrome
+Timestamp: 1638710038  (Unix Timestamp)
+     Date: Sunday, 5 December 2021
+     Time: 6:43:58 PM  (IST, UTC+05:30)
+--------------------------------------------------------------------
+Traceback:   File "/home/pranav/Desktop/SE Project/ui_test/selenium_testing.py", line 83, in test_LoadingAllPages
+    assert False
+
+Exception: assert False
