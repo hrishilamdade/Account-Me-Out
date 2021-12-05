@@ -58,3 +58,26 @@ def test_Loan(sb,name, address, amount, loantype):
         assert True
     except:
         assert False
+
+
+@pytest.mark.parametrize("id",
+[
+   ("Apply For Loan"),
+   ("Transfer Money"),
+   ("Dashboard"),
+   ("Profile"),
+])
+def test_LoadingAllPages(sb,id):
+    #get method to launch the URL
+    sb.open("http://localhost:3000/")
+    # to maximize the browser window
+    sb.maximize_window()
+    # identifying the link with the help of link text locator
+    try:
+        sb.find_element(id,By.ID).click()
+        time.sleep(5)
+        #to close the browser
+        assert True
+    except:
+        assert False
+
